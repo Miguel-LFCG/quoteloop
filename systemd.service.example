@@ -6,11 +6,11 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/srv/hermes-apps/quoteloop
-ExecStart=/usr/bin/node /srv/hermes-apps/quoteloop/server.mjs
+ExecStart=/root/.hermes/node/bin/node /srv/hermes-apps/quoteloop/server.mjs
 Environment=NODE_ENV=production
-Environment=PORT=18081
+Environment=PORT=18082
 Environment=HOST=127.0.0.1
-Environment=ADMIN_TOKEN=REPLACE_WITH_A_RANDOM_SECRET
+EnvironmentFile=/root/.config/quoteloop.env
 Restart=on-failure
 RestartSec=3
 

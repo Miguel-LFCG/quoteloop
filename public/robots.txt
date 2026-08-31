@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://quoteloop.mycuba.xyz/sitemap.xml

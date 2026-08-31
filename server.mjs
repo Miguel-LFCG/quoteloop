@@ -55,7 +55,7 @@ function readJson(req) {
 }
 
 async function sendStatic(res, pathname) {
-  const requested = pathname === '/' ? '/index.html' : pathname === '/app' ? '/app.html' : pathname;
+  const requested = pathname === '/' ? '/index.html' : pathname === '/app' ? '/app.html' : pathname === '/playbook' ? '/playbook.html' : pathname;
   const file = path.resolve(PUBLIC, `.${requested}`);
   if (!file.startsWith(`${PUBLIC}${path.sep}`)) return json(res, 400, { error: 'invalid path' });
   try {

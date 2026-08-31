@@ -28,6 +28,8 @@ Open `http://127.0.0.1:18081/` and `http://127.0.0.1:18081/app`.
 
 - `/` landing page, calculator, offer and pilot form
 - `/app` free local-first quote board
+- `/playbook` SEO-friendly free quote follow-up guide
+- `/robots.txt` and `/sitemap.xml` acquisition metadata
 - `/health` machine health and activation flags
 - `/api/metrics` aggregate counts only
 - `/admin/leads?token=...` private lead export, disabled until `ADMIN_TOKEN` exists
