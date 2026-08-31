@@ -6,15 +6,17 @@ A narrow, privacy-first quote follow-up board and founder-led setup offer for UK
 
 QuoteLoop is **not** pretending to be a full CRM. The launch wedge is: "a two-minute daily list for the quotes that need a human follow-up". The free board stores quote data in the user's browser; the site stores only pilot applications and aggregate events.
 
+Key operating docs: `research.md`, `founder-log.md`, `launch-plan.md`, `launch-checklist.md` and `customer-onboarding.md`.
+
 ## Run locally
 
 ```bash
 npm test
-PORT=18081 node server.mjs
-curl -fsS http://127.0.0.1:18081/health
+PORT=18082 node server.mjs
+curl -fsS http://127.0.0.1:18082/health
 ```
 
-Open `http://127.0.0.1:18081/` and `http://127.0.0.1:18081/app`.
+Open `http://127.0.0.1:18082/` and `http://127.0.0.1:18082/app`.
 
 ## Safe defaults
 
@@ -22,13 +24,15 @@ Open `http://127.0.0.1:18081/` and `http://127.0.0.1:18081/app`.
 - No automated outreach, message sending, payment processing, or domain purchase.
 - `ADMIN_TOKEN` is required for `/admin/leads`; never commit it.
 - SQLite database is `data/quoteloop.sqlite` (override with `DB_PATH`).
-- To run on a public host, set a strong `ADMIN_TOKEN` in the service environment and keep the app bound to localhost behind the existing reverse proxy.
+- The pilot applications table is `data/quoteloop.sqlite` and is excluded from Git.
+- To review submitted leads without printing the token: `curl -fsS "http://127.0.0.1:18082/admin/leads?token=$(sed -n 's/^ADMIN_TOKEN=//p' /root/.config/quoteloop.env)"`
 
 ## Routes
 
 - `/` landing page, calculator, offer and pilot form
 - `/app` free local-first quote board
 - `/playbook` SEO-friendly free quote follow-up guide
+- `/privacy` pilot data-collection note
 - `/robots.txt` and `/sitemap.xml` acquisition metadata
 - `/health` machine health and activation flags
 - `/api/metrics` aggregate counts only
