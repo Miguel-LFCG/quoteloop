@@ -1,0 +1,48 @@
+# Founder log — QuoteLoop
+
+## Assumption → Action → Evidence → Result → Next decision
+
+### 1. Admin pain is revenue-adjacent for UK trades
+- **Assumption:** A recurring follow-up/admin leak is more monetisable than a generic content product.
+- **Action:** Researched official ONS construction statistics plus trade-industry research.
+- **Evidence:** ONS reports 370,770 registered construction firms in Great Britain in Q3 2024.[10] Powered Now reports 277 hours lost to admin per year and 93% stress/anxiety; Electrical Times reports 5h20m/week spent on admin including quoting and chasing payments.[1][2]
+- **Result:** Strong enough pain and market breadth to justify a bounded pilot.
+- **Next decision:** Target independent trades and test a narrow workflow, not all business admin.
+
+### 2. People pay for trade admin software, but the category is crowded
+- **Assumption:** Existing paid products can validate willingness to pay without proving our product will win.
+- **Action:** Checked official Tradify and Quote-Chaser pages.
+- **Evidence:** Tradify lists £34/user/month and quote/invoice/email-tracking features; Quote-Chaser lists automatic quote follow-ups and £9.99/month.[3][4]
+- **Result:** Market is real; generic CRM or quote reminder cloning is a poor wedge.
+- **Next decision:** Build no-account/local-first board with human-in-the-loop messaging and founder-led setup.
+
+### 3. Fast cash beats premature SaaS infrastructure
+- **Assumption:** A £49 setup can reach first revenue faster than waiting for billing, authentication and telephony.
+- **Action:** Built free board, calculator, landing page, pilot form, SQLite lead capture, product playbook and measurement endpoints.
+- **Evidence:** Local tests pass; app handles adding, filtering, marking, deleting, copy-script, WhatsApp-link preparation and backup export.
+- **Result:** Launch-ready validation asset exists, but no revenue has been claimed because no payment provider is configured.
+- **Next decision:** Publish demo, recruit 10 tightly matched pilot applicants, then accept payment only after fit review.
+
+### 4. Safety and privacy should be part of the wedge
+- **Assumption:** A no-account workflow lowers adoption risk and avoids collecting customers' personal data.
+- **Action:** Kept quote records in browser localStorage; server stores only consented pilot applications and aggregate events; automated outreach/payments disabled.
+- **Evidence:** `/health` reports `dryRun:true`, `liveOutreach:false`, `paymentsEnabled:false`; code includes a honeypot, consent requirement, basic rate limit and private admin-token gate.
+- **Result:** Safe dry-run pilot, not a disguised automation system.
+- **Next decision:** Only add cloud sync or messaging after explicit user demand, consent, compliance review and a paying pilot.
+
+## Sources
+
+[1] https://powerednow.com/resources/now-report
+    > "93% of tradespeople report stress or anxiety."
+    > "277hrs Lost to admin every year"
+[2] https://www.electricaltimes.co.uk/93-of-uk-tradespeople-say-running-their-business-is-stressing-them-out-new-national-report-finds
+    > "Business admin – quoting, invoicing and chasing payments – takes an average of five hours and 20 minutes a week"
+    > "tradespeople are owed an average of £5,901 in unpaid invoices"
+[3] https://www.tradifyhq.com/uk/pricing
+    > "£34 per user/month"
+    > "Instant Website £10 per month."
+[4] https://quote-chaser.com
+    > "Quote-Chaser automatically reminds you when to follow up quotations"
+    > "Quote-Chaser Pro £ 9.99 / month"
+[10] https://www.ons.gov.uk/businessindustryandtrade/constructionindustry/articles/constructionstatistics/latest — Construction statistics, Great Britain
+    > "370,770 Value Added Tax (VAT) and Pay As You Earn (PAYE) registered construction firms were operating in the construction industry across Great Britain"

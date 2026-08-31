@@ -1,0 +1,11 @@
+{
+  "name": "quoteloop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A privacy-first quote follow-up board and productized service for UK tradespeople.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  }
+}
