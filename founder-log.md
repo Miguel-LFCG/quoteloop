@@ -44,6 +44,13 @@
 - **Result:** QuoteLoop can now measure the key activation funnel without uploading quote contents, and new applications will be surfaced promptly.
 - **Next decision:** Wait for real visitors and applicants. Continue only if users add real quotes, take follow-up actions and at least one qualified applicant accepts the £49 setup.
 
+### 7. Test a search-led acquisition asset before more product work
+- **Assumption:** People who search for practical quote follow-up wording may be closer to the problem than generic landing-page visitors; a narrowly useful template page can create qualified free-board visits without paid ads.
+- **Action:** Published `/templates` with four editable follow-up messages, a simple routine, explicit no-pressure guidance and links to the free board and founding setup. Added it to the sitemap and linked it from the playbook.
+- **Evidence:** The route returns HTTP 200, contains the template content and CTAs, and is now instrumented through the existing aggregate page-view event. No outreach or spend was used.
+- **Result:** The acquisition experiment is live, but traffic and conversion evidence do not yet exist.
+- **Next decision:** Watch template visits → free-board opens → `quote_added` → pilot applications. Keep it only if it produces qualified activation; do not mistake page views for demand.
+
 ## Sources
 
 [1] https://powerednow.com/resources/now-report

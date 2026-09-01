@@ -38,10 +38,10 @@ For one trade business, up to 10 initial quotes, one configured workflow, trade-
 
 ## First distribution opportunities (manual, not spam)
 
-1. **Trade-specific communities:** Join relevant UK electrician, plumber, builder, decorator and landscaper groups/forums. Read rules first. Publish a genuinely useful post such as “I made a free quote follow-up board that runs in your browser; here are 3 polite follow-up scripts.” Do not mass-DM or scrape members.
-2. **Founder-led 1:1 interviews:** Invite 20 independent trades businesses to a 15-minute workflow interview. The ask is for feedback, not a sales blast. Target businesses with public business contact channels and keep a do-not-contact list.
-3. **Accountant/bookkeeper partners:** Offer a free co-branded checklist for their trade clients; ask whether missed quotes/admin are a recurring issue before proposing a referral arrangement.
-4. **Search-led free content:** Publish the existing playbook and calculator under queries such as “how to follow up a quote UK”, “quote follow up template tradesman” and “how to track quotes without a CRM”. Keep all advice honest and practical.
+1. **Search-led free content:** The live `/playbook` guide and `/templates` page target practical queries such as “how to follow up a quote UK”, “quote follow up template tradesman” and “how to track quotes without a CRM”. Keep all advice honest and practical.
+2. **Trade-specific communities:** Join relevant UK electrician, plumber, builder, decorator and landscaper groups/forums. Read rules first. Publish a genuinely useful post such as “I made a free quote follow-up board that runs in your browser; here are 3 polite follow-up scripts.” Do not mass-DM or scrape members.
+3. **Founder-led 1:1 interviews:** Invite 20 independent trades businesses to a 15-minute workflow interview. The ask is for feedback, not a sales blast. Target businesses with public business contact channels and keep a do-not-contact list.
+4. **Accountant/bookkeeper partners:** Offer a free co-branded checklist for their trade clients; ask whether missed quotes/admin are a recurring issue before proposing a referral arrangement.
 5. **Personalised mini-audits:** For a handful of businesses that invite feedback, review their publicly visible enquiry path and send one short observation plus the free tool. No claims that they have no website, no scraped personal addresses and no automated sending.
 
 ## 7-day first-customer plan
