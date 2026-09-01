@@ -105,10 +105,12 @@ For one trade business, up to 10 initial quotes, one configured workflow, trade-
 ## Metrics
 
 - Acquisition: qualified conversations, source, landing visits, calculator runs, pilot applications.
-- Activation: app opens, quotes added, 5-quote activation rate, export usage.
-- Engagement: day-7 return, due quotes completed, copy-script clicks, statuses updated.
+- Activation: app opens, `quote_added`, 5-quote activation rate, export/import usage.
+- Engagement: day-7 return, `followup_script_copied`, due quotes completed, statuses updated.
 - Commercial: applications → paid setup, revenue, refund rate, delivery minutes, support minutes.
 - Product value: customer-reported forgotten quotes prevented, replies, won/lost quotes and quoted value—not guaranteed revenue.
+
+The live app records only aggregate activation events; quote contents remain in the visitor’s browser. A local watchdog checks for new pilot applications every five minutes and alerts the founder without automatically replying.
 
 ## External action boundary
 

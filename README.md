@@ -8,6 +8,7 @@ QuoteLoop is **not** pretending to be a full CRM. The launch wedge is: "a two-mi
 
 Key operating docs: `research.md`, `founder-log.md`, `launch-plan.md`, `launch-checklist.md` and `customer-onboarding.md`.
 The dry-run prospecting worker and local shortlist are under `prospecting/`.
+Anonymous activation metrics are recorded by the app; `/root/.hermes/scripts/quoteloop_lead_watchdog.py` alerts on new pilot applications without sending replies.
 
 ## Run locally
 

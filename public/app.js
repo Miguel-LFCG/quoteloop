@@ -10,6 +10,11 @@ let quotes = JSON.parse(localStorage.getItem(KEY) || 'null');
 if (!Array.isArray(quotes)) { quotes = seed; save(); }
 let filter = 'today';
 function save() { localStorage.setItem(KEY, JSON.stringify(quotes)); }
+function track(kind) {
+  const body = JSON.stringify({ kind, path: location.pathname });
+  if (navigator.sendBeacon) navigator.sendBeacon('/api/events', new Blob([body], { type: 'application/json' }));
+  else fetch('/api/events', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, keepalive: true }).catch(() => {});
+}
 function escapeHtml(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c])); }
 function dueLabel(q) {
   if (q.nextFollowUp < today()) return `Overdue · ${q.nextFollowUp}`;
@@ -35,11 +40,11 @@ function announce(text, good = true) { const el = document.querySelector('#quote
 const form = document.querySelector('#quote-form');
 form.querySelector('[name=quotedAt]').value = today();
 form.querySelector('[name=nextFollowUp]').value = today();
-form.addEventListener('submit', (e) => { e.preventDefault(); const data = Object.fromEntries(new FormData(form).entries()); data.id = crypto.randomUUID(); data.value = Number(data.value); data.status = 'open'; quotes.push(data); save(); render(); form.reset(); form.querySelector('[name=quotedAt]').value = today(); form.querySelector('[name=nextFollowUp]').value = today(); announce('Added — the quote is now on your follow-up list.'); });
-document.querySelector('#quote-list').addEventListener('click', async (e) => { const b = e.target.closest('[data-action]'); if (!b) return; const q = quotes.find(x => x.id === b.dataset.id); if (!q) return; const action = b.dataset.action; if (action === 'copy') { try { await navigator.clipboard.writeText(message(q)); announce('Script copied — edit it before sending.'); } catch { announce(message(q)); } } else if (action === 'delete') { quotes = quotes.filter(x => x.id !== q.id); save(); render(); } else { q.status = action === 'won' ? 'won' : 'lost'; save(); render(); announce(`Marked ${q.status}.`); } });
+form.addEventListener('submit', (e) => { e.preventDefault(); const data = Object.fromEntries(new FormData(form).entries()); data.id = crypto.randomUUID(); data.value = Number(data.value); data.status = 'open'; quotes.push(data); save(); render(); track('quote_added'); form.reset(); form.querySelector('[name=quotedAt]').value = today(); form.querySelector('[name=nextFollowUp]').value = today(); announce('Added — the quote is now on your follow-up list.'); });
+document.querySelector('#quote-list').addEventListener('click', async (e) => { const b = e.target.closest('[data-action]'); if (!b) return; const q = quotes.find(x => x.id === b.dataset.id); if (!q) return; const action = b.dataset.action; if (action === 'copy') { try { await navigator.clipboard.writeText(message(q)); announce('Script copied — edit it before sending.'); } catch { announce(message(q)); } track('followup_script_copied'); } else if (action === 'delete') { quotes = quotes.filter(x => x.id !== q.id); save(); render(); } else { q.status = action === 'won' ? 'won' : 'lost'; save(); render(); track(action === 'won' ? 'quote_won' : 'quote_lost'); announce(`Marked ${q.status}.`); } });
 document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => { filter = b.dataset.filter; document.querySelectorAll('.filter').forEach(x => x.classList.toggle('active', x === b)); render(); }));
 document.querySelector('#export-btn').addEventListener('click', () => { const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), quotes }, null, 2)], { type: 'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `quoteloop-backup-${today()}.json`; a.click(); URL.revokeObjectURL(a.href); fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'app_export',path:location.pathname})}).catch(()=>{}); });
 document.querySelector('#import-btn').addEventListener('click', () => document.querySelector('#import-file').click());
-document.querySelector('#import-file').addEventListener('change', async (e) => { const file = e.target.files[0]; if (!file) return; try { const data = JSON.parse(await file.text()); const incoming = Array.isArray(data) ? data : data.quotes; if (!Array.isArray(incoming)) throw new Error('No quote list found'); quotes = incoming; save(); render(); announce(`Imported ${quotes.length} quotes.`); } catch (err) { announce(err.message, false); } e.target.value = ''; });
+document.querySelector('#import-file').addEventListener('change', async (e) => { const file = e.target.files[0]; if (!file) return; try { const data = JSON.parse(await file.text()); const incoming = Array.isArray(data) ? data : data.quotes; if (!Array.isArray(incoming)) throw new Error('No quote list found'); quotes = incoming; save(); render(); track('app_import'); announce(`Imported ${quotes.length} quotes.`); } catch (err) { announce(err.message, false); } e.target.value = ''; });
 fetch('/api/events',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'app_open',path:location.pathname})}).catch(()=>{});
 render();

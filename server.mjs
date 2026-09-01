@@ -14,7 +14,7 @@ const VERSION = '0.1.0';
 const store = new Store(DB_PATH);
 const rate = new Map();
 const MAX_BODY = 12_000;
-const ALLOWED_EVENTS = new Set(['page_view', 'calculator_run', 'app_open', 'app_export', 'guide_download', 'lead_form_view']);
+const ALLOWED_EVENTS = new Set(['page_view', 'calculator_run', 'app_open', 'app_export', 'app_import', 'quote_added', 'followup_script_copied', 'quote_won', 'quote_lost', 'lead_form_view']);
 
 function json(res, status, payload) {
   const body = JSON.stringify(payload);

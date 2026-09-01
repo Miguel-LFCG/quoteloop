@@ -37,6 +37,13 @@
 - **Result:** A five-record first batch is ready locally, but every record remains manual-review-required; no outreach occurred.
 - **Next decision:** Manually verify activity, identity, official website and lawful professional contact before sending at most one personalized invitation per approved prospect.
 
+### 6. Measure activation without collecting quote data
+- **Assumption:** Page views alone cannot tell whether QuoteLoop creates real workflow value; aggregate activation events are needed to distinguish curiosity from use.
+- **Action:** Added anonymous event counters for quote added, follow-up script copied, quote won/lost, import and export. Added a five-minute no-agent watchdog that alerts only when a new pilot application appears; it reads the private admin token locally and never prints applicant emails.
+- **Evidence:** The isolated API test accepted all five new event types and returned one count for each; the watchdog baseline ran with zero output and persisted an empty seen-ID state. The live service health response remains healthy with outreach and payments disabled.
+- **Result:** QuoteLoop can now measure the key activation funnel without uploading quote contents, and new applications will be surfaced promptly.
+- **Next decision:** Wait for real visitors and applicants. Continue only if users add real quotes, take follow-up actions and at least one qualified applicant accepts the £49 setup.
+
 ## Sources
 
 [1] https://powerednow.com/resources/now-report
