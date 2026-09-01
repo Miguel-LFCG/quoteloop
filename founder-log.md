@@ -30,6 +30,13 @@
 - **Result:** Safe dry-run pilot, not a disguised automation system.
 - **Next decision:** Only add cloud sync or messaging after explicit user demand, consent, compliance review and a paying pilot.
 
+### 5. Create the first manual-review acquisition batch
+- **Assumption:** A small, evidence-backed queue is more useful than broad automated prospecting.
+- **Action:** Queried a bounded North-West England search box around Manchester for six trade categories using OSM/Overpass, then re-fetched every object by stable ID through the OSM API.
+- **Evidence:** The run returned 48 raw objects, retained 44 after transparent chain filtering, and revalidated all 44; 31 retained a current OSM no-website-tag signal and 13 had a website tag.[11]
+- **Result:** A five-record first batch is ready locally, but every record remains manual-review-required; no outreach occurred.
+- **Next decision:** Manually verify activity, identity, official website and lawful professional contact before sending at most one personalized invitation per approved prospect.
+
 ## Sources
 
 [1] https://powerednow.com/resources/now-report
@@ -46,3 +53,5 @@
     > "Quote-Chaser Pro £ 9.99 / month"
 [10] https://www.ons.gov.uk/businessindustryandtrade/constructionindustry/articles/constructionstatistics/latest — Construction statistics, Great Britain
     > "370,770 Value Added Tax (VAT) and Pay As You Earn (PAYE) registered construction firms were operating in the construction industry across Great Britain"
+[11] https://overpass-api.de/api/interpreter — Overpass API source endpoint
+    > ""name": "Industria Painting and Decorating""

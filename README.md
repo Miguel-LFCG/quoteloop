@@ -7,6 +7,7 @@ A narrow, privacy-first quote follow-up board and founder-led setup offer for UK
 QuoteLoop is **not** pretending to be a full CRM. The launch wedge is: "a two-minute daily list for the quotes that need a human follow-up". The free board stores quote data in the user's browser; the site stores only pilot applications and aggregate events.
 
 Key operating docs: `research.md`, `founder-log.md`, `launch-plan.md`, `launch-checklist.md` and `customer-onboarding.md`.
+The dry-run prospecting worker and local shortlist are under `prospecting/`.
 
 ## Run locally
 
